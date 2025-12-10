@@ -22,7 +22,7 @@ import {
   FaInfoCircle,   // About
   FaUserCog,      // Software User
   FaKey,        // Password
-
+  FaBoxes,
 } from "react-icons/fa";
 import { RiLogoutBoxRLine, RiDashboardFill } from "react-icons/ri";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -30,6 +30,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 const links = [
   { to: "/admin", label: "Dashboard", icon: <RiDashboardFill /> },
   { to: "/admin/item-details", label: "Item Details", icon: <FaBox /> },
+  { to: "/admin/opening-stock", label: "Opening Stock", icon: <FaBoxes /> },
   { to: "/admin/item-purchase", label: "Purchase", icon: <FaShoppingCart /> },
   { to: "/admin/sales-invoice", label: "Sales", icon: <FaReceipt /> },
   { to: "/admin/customers", label: "Customers", icon: <FaUsers /> },
