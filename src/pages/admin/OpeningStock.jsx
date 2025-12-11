@@ -10,16 +10,16 @@ const OpeningStock = () => {
   const [categoryList, setCategoryList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  
+
   // Filter states
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
-  
+
   // State for editing stock quantity
   const [editingStockId, setEditingStockId] = useState(null);
   const [editingStockValue, setEditingStockValue] = useState("");
-  
+
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   // Dummy data for practice
@@ -140,20 +140,20 @@ const OpeningStock = () => {
   const fetchOpeningStock = useCallback(async () => {
     try {
       setLoading(true);
-      
+
       // For now, use dummy data
       // In production, you would use the API call:
       // const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/item-details`);
-      
+
       // Using dummy data for practice
       const stockData = dummyData;
-      
+
       setOpeningStockList(stockData);
       setFilteredStockList(stockData);
     } catch (error) {
       console.error("Failed to fetch opening stock", error);
       toast.error("Failed to load opening stock data");
-      
+
       // Fallback to dummy data if API fails
       setOpeningStockList(dummyData);
       setFilteredStockList(dummyData);
@@ -194,7 +194,7 @@ const OpeningStock = () => {
 
     // Filter by category
     if (selectedCategory !== "all") {
-      filtered = filtered.filter(item => 
+      filtered = filtered.filter(item =>
         item.itemCategory.toLowerCase().includes(selectedCategory.toLowerCase())
       );
     }
@@ -235,7 +235,7 @@ const OpeningStock = () => {
 
     try {
       setSaving(true);
-      
+
       // Update the item in both lists
       const updatedList = openingStockList.map(item => {
         if (item.id === itemId) {
@@ -253,7 +253,7 @@ const OpeningStock = () => {
 
       setOpeningStockList(updatedList);
       setFilteredStockList(updatedFilteredList);
-      
+
       // In production, you would make an API call here:
       // await axios.put(
       //   `${import.meta.env.VITE_API_BASE_URL}/item-details/${itemId}`,
@@ -262,11 +262,11 @@ const OpeningStock = () => {
       // );
 
       toast.success("Stock quantity updated successfully!");
-      
+
       // Reset editing state
       setEditingStockId(null);
       setEditingStockValue("");
-      
+
     } catch (error) {
       console.error("Failed to update stock", error);
       toast.error("Failed to update stock quantity");
@@ -317,8 +317,14 @@ const OpeningStock = () => {
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-8 min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <HashLoader height="150" width="150" radius={1} color="#84CF16" />
+        <div className="text-center flex flex-col items-center justify-center">
+          <HashLoader
+            height="150"
+            width="150"
+            radius={1}
+            color="#84CF16"
+          />
+          <p className="mt-4 text-gray-600">Loading Stock...</p>
         </div>
       </div>
     );
@@ -467,9 +473,8 @@ const OpeningStock = () => {
                 filteredStockList.map((item, index) => (
                   <div
                     key={item.id}
-                    className={`grid grid-cols-[0.5fr_1.5fr_1.5fr_2fr_1.5fr_1fr_1fr_1fr] items-center gap-4 px-6 py-4 border-b border-gray-100 hover:bg-gray-50 transition-all duration-200 ${
-                      index % 2 === 0 ? "bg-white" : "bg-gray-50/50"
-                    }`}
+                    className={`grid grid-cols-[0.5fr_1.5fr_1.5fr_2fr_1.5fr_1fr_1fr_1fr] items-center gap-4 px-6 py-4 border-b border-gray-100 hover:bg-gray-50 transition-all duration-200 ${index % 2 === 0 ? "bg-white" : "bg-gray-50/50"
+                      }`}
                   >
                     {/* Sr# */}
                     <div className="text-sm font-medium text-gray-600">
@@ -483,15 +488,14 @@ const OpeningStock = () => {
 
                     {/* Item Type */}
                     <div>
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        item.itemType === "finished-goods" 
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${item.itemType === "finished-goods"
                           ? "bg-green-100 text-green-800"
                           : item.itemType === "raw-material"
-                          ? "bg-blue-100 text-blue-800"
-                          : item.itemType === "service"
-                          ? "bg-purple-100 text-purple-800"
-                          : "bg-gray-100 text-gray-800"
-                      }`}>
+                            ? "bg-blue-100 text-blue-800"
+                            : item.itemType === "service"
+                              ? "bg-purple-100 text-purple-800"
+                              : "bg-gray-100 text-gray-800"
+                        }`}>
                         {item.itemType.replace("-", " ").toUpperCase()}
                       </span>
                     </div>
@@ -558,14 +562,13 @@ const OpeningStock = () => {
                           </div>
                         </div>
                       ) : (
-                        <div 
-                          className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium cursor-pointer transition-all duration-200 hover:shadow-sm ${userInfo?.isAdmin ? 'hover:scale-105' : ''} ${
-                            item.stockQuantity > 50
+                        <div
+                          className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium cursor-pointer transition-all duration-200 hover:shadow-sm ${userInfo?.isAdmin ? 'hover:scale-105' : ''} ${item.stockQuantity > 50
                               ? "bg-green-100 text-green-800 hover:bg-green-200"
                               : item.stockQuantity > 10
-                              ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
-                              : "bg-red-100 text-red-800 hover:bg-red-200"
-                          }`}
+                                ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
+                                : "bg-red-100 text-red-800 hover:bg-red-200"
+                            }`}
                           onClick={() => handleStockClick(item)}
                         >
                           {item.stockQuantity}
@@ -596,7 +599,7 @@ const OpeningStock = () => {
                 <div className="text-sm text-green-600">Total Stock Value</div>
                 <div className="text-2xl font-bold text-green-700">
                   {formatCurrency(
-                    filteredStockList.reduce((sum, item) => 
+                    filteredStockList.reduce((sum, item) =>
                       sum + (item.purchasePrice * item.stockQuantity), 0
                     )
                   )}
@@ -606,7 +609,7 @@ const OpeningStock = () => {
                 <div className="text-sm text-blue-600">Total Sales Value</div>
                 <div className="text-2xl font-bold text-blue-700">
                   {formatCurrency(
-                    filteredStockList.reduce((sum, item) => 
+                    filteredStockList.reduce((sum, item) =>
                       sum + (item.salesPrice * item.stockQuantity), 0
                     )
                   )}
