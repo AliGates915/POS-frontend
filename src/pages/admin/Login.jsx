@@ -37,11 +37,7 @@ const Login = () => {
       toast.success("Logged in successfully 🎉");
       console.log("Stored userInfo:", userInfo);
   
-      if (user.isAdmin === true || user.isAdmin === false) {
-        navigate("/admin");
-      } else {
-        navigate("/");
-      }
+      navigate("/admin");
   
       setTimeout(() => {
         window.location.reload();
