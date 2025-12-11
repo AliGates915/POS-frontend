@@ -15,7 +15,7 @@ import SupplierList from "./pages/admin/Supplier";
 import Manufacture from "./pages/admin/Manufacture";
 import ItemBarcode from "./pages/admin/ItemBarcode";
 import ItemPurchase from "./pages/admin/ItemPurchase";
-import  SalesInvoice from './pages/admin/SalesInvoice';
+import SalesInvoice from './pages/admin/SalesInvoice';
 import ExpiryTags from "./pages/admin/ExpiryTags";
 import BookingOrder from "./pages/admin/BookingOrder";
 import ItemUnit from './pages/admin/ItemUnit';
@@ -28,6 +28,8 @@ import ModulesFunctionalities from "./pages/admin/ModulesFunctionalities.jsx";
 import ExpenseHead from "./pages/admin/ExpenseHead.jsx";
 import ExpenseVoucher from "./pages/admin/ExpenseVoucher.jsx";
 import DayBook from "./pages/admin/DayBook.jsx";
+import OpeningStock from "./pages/admin/OpeningStock.jsx";
+
 function AppContent() {
   return (
     <div className="max-h-screen flex flex-col bg-gray-50">
@@ -42,7 +44,7 @@ function AppContent() {
             path="/admin/*"
             element={
               <ProtectedRoute>
-              <AdminLayout />
+                <AdminLayout />
               </ProtectedRoute>
             }
           >
@@ -58,7 +60,7 @@ function AppContent() {
             <Route path="sales-invoice" element={<SalesInvoice />} />
             <Route path="item-purchase" element={<ItemPurchase />} />
             <Route path="expiry-tags" element={<ExpiryTags />} />
-             <Route path="item-unit" element={<ItemUnit />} />
+            <Route path="item-unit" element={<ItemUnit />} />
             <Route path="customers-booking" element={<BookingOrder />} />
             <Route path="company" element={<Company />} />
             <Route path="users" element={<Users />} />
@@ -69,6 +71,7 @@ function AppContent() {
             <Route path="expense-head" element={<ExpenseHead />} />
             <Route path="expense-voucher" element={<ExpenseVoucher />} />
             <Route path="day-book" element={<DayBook />} />
+            <Route path="opening-stock" element={<OpeningStock />} />
           </Route>
         </Routes>
       </main>
