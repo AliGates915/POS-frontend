@@ -439,7 +439,7 @@ const SoftwareGroup = () => {
                                 <div className="grid grid-cols-1 gap-6">
                                     {/* Software Group Name */}
                                     <div className="space-y-2">
-                                        <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                                        <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                                             Software Group Name <span className="text-red-500 text-lg">*</span>
                                         </label>
                                         <div className="relative">
