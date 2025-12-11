@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Login from "./pages/admin/Login";
 import Signup from "./pages/admin/Signup";
 import AdminLayout from "./pages/admin/AdminLayout";
@@ -32,9 +33,22 @@ import OpeningStock from "./pages/admin/OpeningStock.jsx";
 import Employee from "./pages/admin/Employee.jsx"
 import SoftwareGroup from "./pages/admin/SoftwareGroup.jsx";
 
+
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function AppContent() {
   return (
     <div className="max-h-screen flex flex-col bg-gray-50">
+      <ScrollToTop />
       <main className="flex-1">
         <Routes>
           {/* Public Routes */}

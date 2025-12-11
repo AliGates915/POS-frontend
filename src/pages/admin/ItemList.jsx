@@ -553,15 +553,15 @@ const ItemList = () => {
         </div>
       </div>
 
-
-
-      {/* Slider */}
+      {/* Slider/Modal */}
       <div
-        className={`fixed inset-0 flex items-center justify-center z-50 transition-all duration-300 ${isSliderOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 flex items-center justify-center z-50 transition-all duration-300 ${isSliderOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
       >
         {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-gray-600/70 backdrop-blur-0 transition-opacity duration-300 ${isSliderOpen ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 bg-gray-600/70 backdrop-blur-0 transition-opacity duration-300 ${isSliderOpen ? "opacity-100" : "opacity-0"
+            }`}
           onClick={() => {
             setIsSliderOpen(false);
             setIsEdit(false);
@@ -583,20 +583,23 @@ const ItemList = () => {
             setEnabled(true);
             setImage(null);
             setImagePreview(null);
+            setItemType("");
+            setItemKind("");
           }}
         />
 
         {/* Slider Content */}
         <div
           ref={sliderRef}
-          className={`relative bg-white w-full max-w-4xl rounded-3xl shadow-2xl h-[90vh] overflow-hidden transform transition-all duration-500 ease-out ${isSliderOpen ? "translate-y-0 scale-100" : "translate-y-8 scale-95"}`}
+          className={`relative bg-white w-full max-w-4xl rounded-3xl shadow-2xl transform transition-all duration-500 ease-out ${isSliderOpen ? "translate-y-0 scale-100" : "translate-y-8 scale-95"
+            }`}
         >
           {/* Header with gradient */}
-          <div className="sticky top-0 z-10 bg-gray-200 -bottom-10 px-8 py-4">
+          <div className="sticky top-0 z-10 bg-gray-200 px-8 py-4 rounded-t-3xl">
             <div className="flex items-center justify-between">
               <div className="flex-1">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-white/10 rounded-lg backdrop-blur-sm">
+                  <div className="p-2 bg-newPrimary/20 rounded-lg backdrop-blur-sm">
                     <svg className="w-6 h-6 text-newPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                     </svg>
@@ -634,6 +637,8 @@ const ItemList = () => {
                   setEnabled(true);
                   setImage(null);
                   setImagePreview(null);
+                  setItemType("");
+                  setItemKind("");
                 }}
               >
                 <svg className="w-6 h-6 text-white bg-newPrimary rounded-lg group-hover:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -644,8 +649,8 @@ const ItemList = () => {
           </div>
 
           {/* Form Content */}
-          <div className="px-8 py-6 overflow-y-scroll h-[calc(90vh-88px)] scrollbar-hide">
-            <div className="space-y-8">
+          <div className="px-8 py-6 overflow-y-auto max-h-[75vh] scrollbar-thin scrollbar-hide scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+            <div className="space-y-8 pb-2">
               {/* Section 1: Basic Information */}
               <div className="space-y-6 p-6 border border-gray-300/60 rounded-2xl bg-gray-100/40 shadow-sm hover:shadow-md transition-shadow duration-300">
                 <div className="flex items-center gap-3 mb-2 border-b border-gray-300 pb-2">
@@ -656,7 +661,7 @@ const ItemList = () => {
                 <div className="grid grid-cols-2 gap-6">
                   {/* Item Category */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Item Category <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative">
@@ -683,7 +688,7 @@ const ItemList = () => {
 
                   {/* Item Type */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Item Type <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative">
@@ -712,7 +717,7 @@ const ItemList = () => {
                 <div className="grid grid-cols-2 gap-6">
                   {/* Item Kind */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Item Kind <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative">
@@ -739,7 +744,7 @@ const ItemList = () => {
 
                   {/* Item Name */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Item Name <span className="text-red-500 text-lg">*</span>
                     </label>
                     <input
@@ -764,7 +769,7 @@ const ItemList = () => {
                 <div className="grid grid-cols-2 gap-6">
                   {/* Manufacture */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Manufacturer <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative">
@@ -791,7 +796,7 @@ const ItemList = () => {
 
                   {/* Supplier */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Supplier <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative">
@@ -820,7 +825,7 @@ const ItemList = () => {
                 <div className="grid grid-cols-2 gap-6">
                   {/* Purchase */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Purchase Price <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative group">
@@ -845,7 +850,7 @@ const ItemList = () => {
 
                   {/* Sales */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Sales <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative">
@@ -872,7 +877,7 @@ const ItemList = () => {
                 <div className="grid grid-cols-2 gap-6">
                   {/* Stock */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Opening Stock <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative">
@@ -893,7 +898,7 @@ const ItemList = () => {
 
                   {/* Barcode */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Barcode <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative">
@@ -944,7 +949,7 @@ const ItemList = () => {
                 <div className="grid grid-cols-2 gap-6">
                   {/* Shelve Location */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Shelve Location <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative">
@@ -971,7 +976,7 @@ const ItemList = () => {
 
                   {/* Item Unit */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Item Unit <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative">
@@ -1042,24 +1047,25 @@ const ItemList = () => {
 
               {/* Section 4: Image Upload */}
               <div className="space-y-6 p-6 border border-gray-300/60 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-center gap-3 mb-2 ">
+                <div className="flex items-center gap-3 mb-2">
                   <div className="w-1.5 h-6 bg-green-500 rounded-full"></div>
                   <h3 className="text-lg font-semibold text-gray-800">Product Image</h3>
                 </div>
 
-                <div className={`border-2 ${imagePreview ? 'border-gray-200' : 'border-dashed border-gray-300'} rounded-2xl p-8 transition-all duration-300 hover:border-newPrimary/50 bg-gradient-to-br from-gray-50 to-white`}>
+                <div className={`border-2 ${imagePreview ? 'border-gray-200' : 'border-dashed border-gray-300'
+                  } rounded-2xl p-6 transition-all duration-300 hover:border-newPrimary/50 bg-gradient-to-br from-gray-50 to-white`}>
                   {imagePreview ? (
                     <div className="flex flex-col items-center">
-                      <div className="relative w-56 h-56 mb-6 group">
+                      <div className="relative w-40 h-40 mb-4 group">
                         <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-transparent rounded-xl"></div>
                         <img
                           src={imagePreview}
                           alt="Preview"
-                          className="w-full h-full object-cover rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-contain rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-300 bg-white p-3"
                         />
                         <button
                           onClick={removeImage}
-                          className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-9 h-9 flex items-center justify-center shadow-lg hover:bg-red-600 hover:scale-110 transition-all duration-200 group-hover:opacity-100 opacity-90"
+                          className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg hover:bg-red-600 hover:scale-110 transition-all duration-200 group-hover:opacity-100 opacity-90"
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1068,15 +1074,15 @@ const ItemList = () => {
                       </div>
                       <button
                         onClick={() => document.getElementById('file-upload')?.click()}
-                        className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                        className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg text-sm"
                       >
                         Change Image
                       </button>
                     </div>
                   ) : (
                     <div className="text-center">
-                      <div className="mx-auto w-20 h-20 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex items-center justify-center mb-6 shadow-inner">
-                        <svg className="w-40 h-40 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex items-center justify-center mb-4 shadow-inner">
+                        <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                       </div>
@@ -1105,6 +1111,7 @@ const ItemList = () => {
                     accept="image/*"
                   />
                 </div>
+
               </div>
 
               {/* Section 5: Status & Actions */}
