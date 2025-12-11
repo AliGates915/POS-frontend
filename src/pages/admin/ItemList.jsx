@@ -415,8 +415,14 @@ const ItemList = () => {
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-8 min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <HashLoader height="150" width="150" radius={1} color="#84CF16" />
+        <div className="text-center flex flex-col items-center justify-center">
+          <HashLoader
+            height="150"
+            width="150"
+            radius={1}
+            color="#84CF16"
+          />
+          <p className="mt-4 text-gray-600">Loading Items List...</p>
         </div>
       </div>
     );
@@ -1070,7 +1076,7 @@ const ItemList = () => {
                   ) : (
                     <div className="text-center">
                       <div className="mx-auto w-20 h-20 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex items-center justify-center mb-6 shadow-inner">
-                        <svg className="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-40 h-40 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                       </div>

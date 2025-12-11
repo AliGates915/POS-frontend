@@ -29,6 +29,8 @@ import ExpenseHead from "./pages/admin/ExpenseHead.jsx";
 import ExpenseVoucher from "./pages/admin/ExpenseVoucher.jsx";
 import DayBook from "./pages/admin/DayBook.jsx";
 import OpeningStock from "./pages/admin/OpeningStock.jsx";
+import Employee from "./pages/admin/Employee.jsx"
+import SoftwareGroup from "./pages/admin/SoftwareGroup.jsx";
 
 function AppContent() {
   return (
@@ -72,6 +74,8 @@ function AppContent() {
             <Route path="expense-voucher" element={<ExpenseVoucher />} />
             <Route path="day-book" element={<DayBook />} />
             <Route path="opening-stock" element={<OpeningStock />} />
+            <Route path="employee" element={<Employee />} />
+            <Route path="software-group" element={<SoftwareGroup />} />
           </Route>
         </Routes>
       </main>

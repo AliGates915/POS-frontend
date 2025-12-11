@@ -23,6 +23,9 @@ import {
   FaUserCog,      // Software User
   FaKey,        // Password
   FaBoxes,
+  FaBuilding,
+  FaUserTie,
+  FaProjectDiagram,
 } from "react-icons/fa";
 import { RiLogoutBoxRLine, RiDashboardFill } from "react-icons/ri";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -53,7 +56,9 @@ const links = [
     label: "Security",
     icon: <FaUserShield />,
     children: [
-      // { to: "/admin/company", label: "Company", icon: <FaInfoCircle /> },
+      { to: "/admin/company", label: "Company", icon: <FaBuilding /> },
+      { to: "/admin/employee", label: "Employee", icon: <FaUserTie /> },
+      { to: "/admin/software-group", label: "Software Group", icon: <FaProjectDiagram /> },
       { to: "/admin/users", label: "Users", icon: <FaUserCog /> },
 
       { to: "/admin/modules", label: "Modules", icon: <FaCubes /> },
