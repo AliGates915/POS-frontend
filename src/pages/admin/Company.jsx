@@ -705,7 +705,7 @@ const Company = () => {
                 <div className="grid grid-cols-2 gap-6">
                   {/* Company Name */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Company Name <span className="text-red-500 text-lg">*</span>
                     </label>
                     <input
@@ -720,7 +720,7 @@ const Company = () => {
 
                   {/* Email */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
                       Email Address <span className="text-red-500 text-lg">*</span>
                     </label>
                     <div className="relative">
