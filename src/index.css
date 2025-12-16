@@ -5,3 +5,17 @@
 body {
   @apply font-sans bg-gray-100 text-gray-800;
 }
+
+@keyframes carousel-progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-carousel-progress {
+  animation: carousel-progress 3s linear infinite;
+}
+
