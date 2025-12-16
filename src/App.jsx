@@ -16,10 +16,10 @@ import SupplierList from "./pages/admin/Supplier";
 import Manufacture from "./pages/admin/Manufacture";
 import ItemBarcode from "./pages/admin/ItemBarcode";
 import ItemPurchase from "./pages/admin/ItemPurchase";
-import SalesInvoice from './pages/admin/SalesInvoice';
+import SalesInvoice from "./pages/admin/SalesInvoice";
 import ExpiryTags from "./pages/admin/ExpiryTags";
 import BookingOrder from "./pages/admin/BookingOrder";
-import ItemUnit from './pages/admin/ItemUnit';
+import ItemUnit from "./pages/admin/ItemUnit";
 import Company from "./pages/admin/Company";
 import Users from "./pages/admin/Users";
 import GroupManagement from "./pages/admin/GroupManagement";
@@ -30,10 +30,10 @@ import ExpenseHead from "./pages/admin/ExpenseHead.jsx";
 import ExpenseVoucher from "./pages/admin/ExpenseVoucher.jsx";
 import DayBook from "./pages/admin/DayBook.jsx";
 import OpeningStock from "./pages/admin/OpeningStock.jsx";
-import Employee from "./pages/admin/Employee.jsx"
+import Employee from "./pages/admin/Employee.jsx";
 import SoftwareGroup from "./pages/admin/SoftwareGroup.jsx";
-
-
+import GroupUsers from "./pages/admin/GroupUsers.jsx";
+import SecurityLog from "./pages/admin/SecurityLog.jsx"
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -83,13 +83,18 @@ function AppContent() {
             <Route path="groups" element={<GroupManagement />} />
             <Route path="access-rights" element={<AccessRights />} />
             <Route path="modules" element={<Modules />} />
-            <Route path="modules-functionalities" element={<ModulesFunctionalities />} />
+            <Route
+              path="modules-functionalities"
+              element={<ModulesFunctionalities />}
+            />
             <Route path="expense-head" element={<ExpenseHead />} />
             <Route path="expense-voucher" element={<ExpenseVoucher />} />
             <Route path="day-book" element={<DayBook />} />
             <Route path="opening-stock" element={<OpeningStock />} />
             <Route path="employee" element={<Employee />} />
             <Route path="software-group" element={<SoftwareGroup />} />
+            <Route path="group-users" element={<GroupUsers />} />
+            <Route path="security-log" element={<SecurityLog />} />
           </Route>
         </Routes>
       </main>
