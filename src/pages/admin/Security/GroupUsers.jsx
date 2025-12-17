@@ -13,7 +13,7 @@ import {
   FiFolder,
 } from "react-icons/fi";
 import { FaUsers, FaUserFriends } from "react-icons/fa";
-import Pagination from "../../pages/admin/pagination/Pagination";
+import Pagination from "../pagination/Pagination";
 
 const GroupUsers = () => {
   const [groupUserList, setGroupUserList] = useState([]);
@@ -529,7 +529,7 @@ const GroupUsers = () => {
                     {/* EDIT ICON */}
                     <button
                       onClick={() => handleEdit(item)}
-                      className="text-blue-600 hover:bg-blue-100 bg-blue-50 p-2 rounded-md transition"
+                      className="text-purple-600 hover:bg-purple-100 bg-purple-50 p-2 rounded-md transition"
                       title="Edit Assignment"
                     >
                       <FiEdit3 className="w-4 h-4" />
