@@ -14,7 +14,7 @@ import {
   FiInfo,
 } from "react-icons/fi";
 import { FaUserTie } from "react-icons/fa";
-import Pagination from "../../pages/admin/pagination/Pagination";
+import Pagination from "../pagination/Pagination";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -546,7 +546,7 @@ const Users = () => {
                     {/* EDIT ICON */}
                     <button
                       onClick={() => handleEdit(user)}
-                      className="text-blue-600 hover:bg-blue-100 bg-blue-50 p-2 rounded-md transition"
+                      className="text-purple-600 hover:bg-purple-100 bg-purple-50 p-2 rounded-md transition"
                       title="Edit User"
                     >
                       <FiEdit3 className="w-4 h-4" />

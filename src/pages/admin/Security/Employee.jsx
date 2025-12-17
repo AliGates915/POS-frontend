@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { FiEdit3, FiTrash2, FiUser, FiMail, FiBriefcase, FiAward, FiHash } from "react-icons/fi";
 import { FaUsers, FaBuilding } from "react-icons/fa";
-import Pagination from "../../pages/admin/pagination/Pagination";
+import Pagination from "../pagination/Pagination";
 
 const Employee = () => {
     const [employeeList, setEmployeeList] = useState([]);
@@ -542,7 +542,7 @@ const Employee = () => {
                                         {/* EDIT ICON */}
                                         <button
                                             onClick={() => handleEdit(employee)}
-                                            className="text-blue-600 hover:bg-blue-100 bg-blue-50 p-2 rounded-md transition"
+                                            className="text-purple-600 hover:bg-purple-100 bg-purple-50 p-2 rounded-md transition"
                                         >
                                             <FiEdit3 className="w-4 h-4" />
                                         </button>

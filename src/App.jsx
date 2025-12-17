@@ -20,20 +20,22 @@ import SalesInvoice from "./pages/admin/SalesInvoice";
 import ExpiryTags from "./pages/admin/ExpiryTags";
 import BookingOrder from "./pages/admin/BookingOrder";
 import ItemUnit from "./pages/admin/ItemUnit";
-import Company from "./pages/admin/Company";
-import Users from "./pages/admin/Users";
+import Company from "./pages/admin/Security/Company.jsx";
+import Users from "./pages/admin/Security/Users";
 import GroupManagement from "./pages/admin/GroupManagement";
-import AccessRights from "./pages/admin/AccessControl";
-import Modules from "./pages/admin/Modules";
-import ModulesFunctionalities from "./pages/admin/ModulesFunctionalities.jsx";
+import UserModuleAccess from "./pages/admin/Security/UserModuleAccess.jsx";
+import Modules from "./pages/admin/Security/Modules";
+import ModulesFunctionalities from "./pages/admin/Security/ModulesFunctionalities.jsx";
 import ExpenseHead from "./pages/admin/ExpenseHead.jsx";
 import ExpenseVoucher from "./pages/admin/ExpenseVoucher.jsx";
 import DayBook from "./pages/admin/DayBook.jsx";
 import OpeningStock from "./pages/admin/OpeningStock.jsx";
-import Employee from "./pages/admin/Employee.jsx";
-import SoftwareGroup from "./pages/admin/SoftwareGroup.jsx";
-import GroupUsers from "./pages/admin/GroupUsers.jsx";
-import SecurityLog from "./pages/admin/SecurityLog.jsx"
+import Employee from "./pages/admin/Security/Employee.jsx";
+import SoftwareGroup from "./pages/admin/Security/SoftwareGroup.jsx";
+import GroupUsers from "./pages/admin/Security/GroupUsers.jsx";
+import SecurityLog from "./pages/admin/Security/SecurityLog.jsx";
+import GroupRights from "./pages/admin/Security/GroupRights.jsx";
+import SecurityPage from "./pages/admin/Security/SecurityPage.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -81,7 +83,7 @@ function AppContent() {
             <Route path="company" element={<Company />} />
             <Route path="users" element={<Users />} />
             <Route path="groups" element={<GroupManagement />} />
-            <Route path="access-rights" element={<AccessRights />} />
+            <Route path="user-module-access" element={<UserModuleAccess />} />
             <Route path="modules" element={<Modules />} />
             <Route
               path="modules-functionalities"
@@ -95,6 +97,10 @@ function AppContent() {
             <Route path="software-group" element={<SoftwareGroup />} />
             <Route path="group-users" element={<GroupUsers />} />
             <Route path="security-log" element={<SecurityLog />} />
+            <Route path="group-rights" element={<GroupRights />} />
+
+            {/* Security Page */}
+            <Route path="security-module" element={<SecurityPage />} />
           </Route>
         </Routes>
       </main>

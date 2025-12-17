@@ -18,7 +18,7 @@ import {
   FiRefreshCw
 } from "react-icons/fi";
 import { FaShieldAlt, FaHistory } from "react-icons/fa";
-import Pagination from "../../pages/admin/pagination/Pagination";
+import Pagination from "../pagination/Pagination";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -532,8 +532,8 @@ const SecurityLog = () => {
         </div>
       </div>
 
-      {/* Filter Section */}
-      <div className="mb-6 p-4 bg-white rounded-xl shadow border border-gray-200">
+      {/* Filter Section // Search // Date Filter // Activity Type Filter */}
+      {/* <div className="mb-6 p-4 bg-white rounded-xl shadow border border-gray-200">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
             <FiFilter className="text-newPrimary" />
@@ -551,7 +551,6 @@ const SecurityLog = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Search */}
           <div className="relative">
             <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -563,7 +562,6 @@ const SecurityLog = () => {
             />
           </div>
 
-          {/* Date Filter */}
           <div className="relative">
             <FiCalendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <DatePicker
@@ -576,7 +574,6 @@ const SecurityLog = () => {
             />
           </div>
 
-          {/* Activity Type Filter */}
           <div className="relative">
             <FiActivity className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <select
@@ -593,7 +590,7 @@ const SecurityLog = () => {
             </select>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Security Logs Table */}
       <div className="rounded-xl shadow-lg p-6 border border-gray-200 w-full overflow-hidden bg-white">
@@ -657,16 +654,16 @@ const SecurityLog = () => {
                   {/* Activity */}
                   <div>
                     <div className="flex items-start gap-2">
-                      <span className="text-lg mt-0.5">{getActivityIcon(log.activity)}</span>
+                      {/* <span className="text-lg mt-0.5">{getActivityIcon(log.activity)}</span> */}
                       <div>
                         <div className="text-sm font-medium text-gray-900">
                           {log.activity}
                         </div>
-                        <div className="mt-1">
+                        {/* <div className="mt-1">
                           <span className={`text-xs font-medium px-2 py-1 rounded-full border ${getSeverityBadgeClass(log.severity)}`}>
                             {log.severity.charAt(0).toUpperCase() + log.severity.slice(1)} Severity
                           </span>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -674,13 +671,13 @@ const SecurityLog = () => {
                   {/* Actions */}
                   <div className="flex items-center gap-3 justify-end">
                     {/* VIEW ICON */}
-                    <button
+                    {/* <button
                       onClick={() => handleEdit(log)}
                       className="text-blue-600 hover:bg-blue-100 bg-blue-50 p-2 rounded-md transition"
                       title="View Details"
                     >
                       <FiEye className="w-4 h-4" />
-                    </button>
+                    </button> */}
                     
                     {/* EDIT ICON */}
                     <button

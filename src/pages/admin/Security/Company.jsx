@@ -8,7 +8,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FiEdit3, FiTrash2 } from "react-icons/fi";
 import { FaBuilding } from "react-icons/fa";
-import Pagination from "../../pages/admin/pagination/Pagination";
+import Pagination from "../pagination/Pagination";
 
 const Company = () => {
   const [companyList, setCompanyList] = useState([]);
@@ -585,7 +585,7 @@ const Company = () => {
                       {/* EDIT ICON */}
                       <button
                         onClick={() => handleEdit(company)}
-                        className="text-blue-600 hover:bg-blue-100 bg-blue-50 p-2 rounded-md transition"
+                        className="text-purple-600 hover:bg-purple-100 bg-purple-50 p-2 rounded-md transition"
                       >
                         <FiEdit3 className="w-4 h-4" />
                       </button>

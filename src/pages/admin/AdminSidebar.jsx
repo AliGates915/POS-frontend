@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {
   FaChevronDown,
-  FaChevronUp, FaWallet,
+  FaChevronUp,
+  FaWallet,
   FaFileInvoiceDollar,
   FaBookOpen,
   FaBox,
@@ -19,15 +20,16 @@ import {
   FaWarehouse,
   FaCubes,
   FaBalanceScale,
-  FaInfoCircle,   // About
-  FaUserCog,      // Software User
-  FaKey,        // Password
+  FaInfoCircle, // About
+  FaUserCog, // Software User
+  FaKey, // Password
   FaBoxes,
   FaBuilding,
   FaUserTie,
   FaProjectDiagram,
   FaUsersCog,
   FaShieldAlt,
+  FaLock,
 } from "react-icons/fa";
 import { RiLogoutBoxRLine, RiDashboardFill } from "react-icons/ri";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -39,7 +41,11 @@ const links = [
   { to: "/admin/item-purchase", label: "Purchase", icon: <FaShoppingCart /> },
   { to: "/admin/sales-invoice", label: "Sales", icon: <FaReceipt /> },
   { to: "/admin/customers", label: "Customers", icon: <FaUsers /> },
-  { to: "/admin/customers-booking", label: "Booking Customer", icon: <FaUsers /> },
+  {
+    to: "/admin/customers-booking",
+    label: "Booking Customer",
+    icon: <FaUsers />,
+  },
   { to: "/admin/item-barcode", label: "Item Barcode", icon: <FaBarcode /> },
   { to: "/admin/expiry-tags", label: "Expiry Tags", icon: <FaTags /> },
   { to: "/admin/report", label: "Report", icon: <FaChartBar /> },
@@ -47,40 +53,39 @@ const links = [
     label: "Setup",
     icon: <FaCogs />,
     children: [
-      { to: "/admin/category-item", label: "Item Categories", icon: <FaTags /> },
+      {
+        to: "/admin/category-item",
+        label: "Item Categories",
+        icon: <FaTags />,
+      },
       { to: "/admin/manufacture", label: "Manufacturer", icon: <FaIndustry /> },
       { to: "/admin/supplier", label: "Supplier", icon: <FaTruck /> },
-      { to: "/admin/shelve-location", label: "Shelve Location", icon: <FaWarehouse /> },
+      {
+        to: "/admin/shelve-location",
+        label: "Shelve Location",
+        icon: <FaWarehouse />,
+      },
       { to: "/admin/item-unit", label: "Item Unit", icon: <FaBalanceScale /> },
     ],
   },
-  {
+ {
     label: "Security",
     icon: <FaUserShield />,
-    children: [
-      { to: "/admin/company", label: "Company", icon: <FaBuilding /> },
-      { to: "/admin/employee", label: "Employee", icon: <FaUserTie /> },
-      { to: "/admin/software-group", label: "Software Group", icon: <FaProjectDiagram /> },
-      { to: "/admin/users", label: "Users", icon: <FaUserCog /> },
-      { to: "/admin/group-users", label: "Group Users", icon: <FaUsersCog /> },
-      { to: "/admin/security-log", label: "Security Log", icon: <FaShieldAlt /> },
-
-      { to: "/admin/modules", label: "Modules", icon: <FaCubes /> },
-      { to: "/admin/modules-functionalities", label: "Modules Functionalities", icon: <FaTasks /> },
-      { to: "/admin/groups", label: "Group Management", icon: <FaUsers /> },
-      { to: "/admin/access-rights", label: "Access Control", icon: <FaUserShield /> },
-    ],
+    to: "/admin/security-module"  // Add direct link here
   },
   {
     label: "Accounts",
     icon: <FaUserShield />,
     children: [
       { to: "/admin/expense-head", label: "Expense Head", icon: <FaWallet /> },
-      { to: "/admin/expense-voucher", label: "Expense Voucher", icon: <FaFileInvoiceDollar /> },
+      {
+        to: "/admin/expense-voucher",
+        label: "Expense Voucher",
+        icon: <FaFileInvoiceDollar />,
+      },
       { to: "/admin/day-book", label: "Day Book", icon: <FaBookOpen /> },
     ],
   },
-
 ];
 
 const AdminSidebar = () => {
@@ -118,7 +123,7 @@ const AdminSidebar = () => {
             <div className="absolute top-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
           </div>
           <h1 className="hidden md:block text-xl font-bold bg-gradient-to-r from-newPrimary to-primaryDark bg-clip-text text-transparent">
-           Infinity Byte (Point of Sales)
+            Infinity Byte (Point of Sales)
           </h1>
         </div>
 
@@ -130,7 +135,9 @@ const AdminSidebar = () => {
               <div key={link.label}>
                 <button
                   onClick={() => toggleMenu(link.label)}
-                  className={`w-full flex items-center justify-center sm:justify-start gap-2 px-2 sm:px-4 py-2 rounded-lg font-medium transition text-gray-700 hover:text-gray-600 hover:bg-newPrimary/30 ${openMenu === link.label ? "bg-newPrimary/20" : ""}`}
+                  className={`w-full flex items-center justify-center sm:justify-start gap-2 px-2 sm:px-4 py-2 rounded-lg font-medium transition text-gray-700 hover:text-gray-600 hover:bg-newPrimary/30 ${
+                    openMenu === link.label ? "bg-newPrimary/20" : ""
+                  }`}
                 >
                   {link.icon}
                   <span className="hidden sm:inline">{link.label}</span>
@@ -148,12 +155,16 @@ const AdminSidebar = () => {
                         key={sub.to}
                         to={sub.to}
                         className={({ isActive }) =>
-                          `flex items-center gap-2 px-2 sm:px-4 py-2 rounded-lg font-medium transition ${isActive
-                            ? "bg-newPrimary/80 text-white"
-                            : "text-gray-700 hover:text-gray-600 hover:bg-newPrimary/30"}`
+                          `flex items-center gap-2 px-2 sm:px-4 py-2 rounded-lg font-medium transition ${
+                            isActive
+                              ? "bg-newPrimary/80 text-white"
+                              : "text-gray-700 hover:text-gray-600 hover:bg-newPrimary/30"
+                          }`
                         }
                       >
-                        {sub.icon && <span className="text-lg">{sub.icon}</span>}
+                        {sub.icon && (
+                          <span className="text-lg">{sub.icon}</span>
+                        )}
                         <span className="hidden sm:inline">{sub.label}</span>
                       </NavLink>
                     ))}
@@ -165,7 +176,11 @@ const AdminSidebar = () => {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `flex items-center justify-center sm:justify-start gap-2 px-2 sm:px-4 py-2 rounded-lg font-medium transition ${isActive ? "bg-newPrimary/80 text-white" : "text-gray-700 hover:text-gray-600 hover:bg-newPrimary/30"}`
+                  `flex items-center justify-center sm:justify-start gap-2 px-2 sm:px-4 py-2 rounded-lg font-medium transition ${
+                    isActive
+                      ? "bg-newPrimary/80 text-white"
+                      : "text-gray-700 hover:text-gray-600 hover:bg-newPrimary/30"
+                  }`
                 }
                 end={link.to === "/admin"}
               >
@@ -186,7 +201,6 @@ const AdminSidebar = () => {
         <span className="hidden sm:inline">Logout</span>
       </button>
     </aside>
-
   );
 };
 
