@@ -37,13 +37,19 @@ const Login = () => {
       currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
     }`;
 
+    const staticCredentials = {
+  email: "admin@gmail.com",
+  password: "admin1122",
+};
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/auth/login`,
-        { email, password }
-      );
+        const response = await axios.post(
+      `${import.meta.env.VITE_API_BASE_URL}/auth/login`,
+      staticCredentials
+    );
 
       const { token, user } = response.data;
 
