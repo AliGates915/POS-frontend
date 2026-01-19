@@ -45,36 +45,38 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-        const response = await axios.post(
-      `${import.meta.env.VITE_API_BASE_URL}/auth/login`,
-      staticCredentials
-    );
 
-      const { token, user } = response.data;
+    navigate('/admin')
+    // try {
+    //     const response = await axios.post(
+    //   `${import.meta.env.VITE_API_BASE_URL}/auth/login`,
+    //   staticCredentials
+    // );
 
-      // ✅ Merge token with user and save as userInfo
-      const userInfo = { ...user, token };
+    //   const { token, user } = response.data;
 
-      // ✅ Store in Redux (will also store in localStorage via authSlice)
-      dispatch(loginSuccess(userInfo));
+    //   // ✅ Merge token with user and save as userInfo
+    //   const userInfo = { ...user, token };
 
-      // ✅ Toast and redirect
-      toast.success("Logged in successfully 🎉");
-      console.log("Stored userInfo:", userInfo);
+    //   // ✅ Store in Redux (will also store in localStorage via authSlice)
+    //   dispatch(loginSuccess(userInfo));
 
-      navigate("/admin");
+    //   // ✅ Toast and redirect
+    //   toast.success("Logged in successfully 🎉");
+    //   console.log("Stored userInfo:", userInfo);
 
-      setTimeout(() => {
-        window.location.reload();
-      }, 100);
-    } catch (error) {
-      toast.error(
-        error.response?.data?.message ||
-          error.message ||
-          "Login failed. Please try again."
-      );
-    }
+    //   navigate("/admin");
+
+    //   setTimeout(() => {
+    //     window.location.reload();
+    //   }, 100);
+    // } catch (error) {
+    //   toast.error(
+    //     error.response?.data?.message ||
+    //       error.message ||
+    //       "Login failed. Please try again."
+    //   );
+    // }
   };
 
   return (
