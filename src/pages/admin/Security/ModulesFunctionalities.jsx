@@ -536,7 +536,7 @@ const ModuleFunctions = () => {
       } else {
         // If no data from API, use dummy data
         setFunctionList(dummyFunctions);
-        console.log("Using dummy functions data");
+        // console.log("Using dummy functions data");
       }
     } catch (error) {
       // If API fails, use dummy data for demonstration

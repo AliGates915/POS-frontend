@@ -47,7 +47,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
+    // console.log(form);
     if (
       !form.name ||
       !form.username ||
@@ -79,7 +79,7 @@ const Signup = () => {
           role: form.role,
         }
       );
-      console.log(response.data.user);
+      // console.log(response.data.user);
       toast.success("Signup successful!");
       navigate("/");
     } catch (error) {

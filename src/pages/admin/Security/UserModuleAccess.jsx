@@ -774,7 +774,7 @@ const UsersModuleAccess = () => {
       } else {
         // If no data from API, use dummy data
         setAccessList(dummyAccess);
-        console.log("Using dummy access data");
+        // console.log("Using dummy access data");
       }
     } catch (error) {
       // If API fails, use dummy data for demonstration

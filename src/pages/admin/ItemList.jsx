@@ -77,7 +77,7 @@ const ItemList = () => {
       setLoading(true);
       const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/item-details`);
       setItemList(res.data); // store actual categories array
-      console.log("Item Details ", res.data);
+      // console.log("Item Details ", res.data);
     } catch (error) {
       console.error("Failed to fetch item details", error);
     } finally {
@@ -94,7 +94,7 @@ const ItemList = () => {
       setLoading(true);
       const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/categories/list`);
       setCategoryList(res.data); // store actual categories array
-      console.log("Categories ", res.data);
+      // console.log("Categories ", res.data);
     } catch (error) {
       console.error("Failed to fetch categories", error);
     } finally {
@@ -111,7 +111,7 @@ const ItemList = () => {
       setLoading(true);
       const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/item-unit`);
       setItemUnitList(res.data); // store actual categories array
-      console.log("Item Unit ", res.data);
+      // console.log("Item Unit ", res.data);
     } catch (error) {
       console.error("Failed to fetch item unit", error);
     } finally {
@@ -128,7 +128,7 @@ const ItemList = () => {
       setLoading(true);
       const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/manufacturers/list`);
       setManufacturerList(res.data); // store actual categories array
-      console.log("Manufacturer ", res.data);
+      // console.log("Manufacturer ", res.data);
     } catch (error) {
       console.error("Failed to fetch Manufacturer", error);
     } finally {
@@ -145,7 +145,7 @@ const ItemList = () => {
       setLoading(true);
       const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/suppliers/list`);
       setSupplierList(res.data); // store actual categories array
-      console.log("Supplier ", res.data);
+      // console.log("Supplier ", res.data);
     } catch (error) {
       console.error("Failed to fetch Supplier", error);
     } finally {
@@ -162,7 +162,7 @@ const ItemList = () => {
       setLoading(true);
       const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/shelves`);
       setShelvesList(res.data); // store actual categories array
-      console.log("Shelves ", res.data);
+      // console.log("Shelves ", res.data);
     } catch (error) {
       console.error("Failed to fetch Shelves", error);
     } finally {
@@ -172,9 +172,6 @@ const ItemList = () => {
   useEffect(() => {
     fetchShelvesList();
   }, [fetchShelvesList]);
-
-
-
 
 
   // Handlers
@@ -228,7 +225,7 @@ const ItemList = () => {
       formData.append("itemImage", image); // ✅ append actual file, not preview
     }
 
-    console.log("Form Data", [...formData.entries()]);
+    // console.log("Form Data", [...formData.entries()]);
 
     try {
       const headers = {
@@ -288,7 +285,7 @@ const ItemList = () => {
   }
   // Edit Item
   const handleEdit = (item) => {
-    console.log("Item", item);
+    // console.log("Item", item);
 
     setIsEdit(true);
     setEditId(item._id);
@@ -404,12 +401,11 @@ const ItemList = () => {
   };
 
   // Capitalize First Letter
-  function capitalizeFirstLetter(value) {
-    if (!value) return "";
-    const str = String(value); // ensure it's a string
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
+function capitalizeFirstLetter(value) {
+  if (!value) return "";
+  const str = String(value);
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
   // Show loading spinner
   if (loading) {
@@ -482,7 +478,7 @@ const ItemList = () => {
                       <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 border-2 border-white rounded-full"></div>
                     </div>
                     <span className="text-sm font-medium text-gray-900 truncate">
-                      {capitalizeFirstLetter(item?.itemCategory?.categoryName)}
+                      {item?.itemCategory?.categoryName || ""}
                     </span>
                   </div>
 
@@ -513,7 +509,7 @@ const ItemList = () => {
 
                   {/* Barcode */}
                   <div className="text-sm font-mono text-gray-600 bg-gray-100 px-3 py-1 rounded-md border border-gray-200 truncate">
-                    {item.labelBarcode.slice(0, 12)}
+                    {item.labelBarcode}
                   </div>
 
                   {/* Actions */}

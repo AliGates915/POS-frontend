@@ -250,11 +250,11 @@ const SecurityLog = () => {
         // If no data from API, use dummy data
         setSecurityLogList(dummySecurityLogs);
         setUsers(dummyUsers);
-        console.log("Using dummy security logs data");
+        // console.log("Using dummy security logs data");
       }
     } catch (error) {
       // If API fails, use dummy data for demonstration
-      console.log("API failed, using dummy data");
+      // console.log("API failed, using dummy data");
       setSecurityLogList(dummySecurityLogs);
       setUsers(dummyUsers);
     } finally {
@@ -353,7 +353,7 @@ const SecurityLog = () => {
     formData.append("activityTime", activityTime);
     formData.append("activity", activity);
 
-    console.log("Form Data", [...formData.entries()]);
+    // console.log("Form Data", [...formData.entries()]);
 
     try {
       const headers = {

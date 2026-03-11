@@ -58,7 +58,7 @@ const ExpenseVoucher = () => {
       setLoading(true);
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/voucher`);
       const result = await response.json();
-      console.log("Expense Vouchers ", result);
+      // console.log("Expense Vouchers ", result);
       setExpenseVoucherList(result);
     } catch (error) {
       console.error("Error fetching expense voucher data:", error);
@@ -79,7 +79,7 @@ const ExpenseVoucher = () => {
       setLoading(true);
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/heads`);
       const result = await response.json();
-      console.log("Expense Heads ", result);
+      // console.log("Expense Heads ", result);
       setExpenseHeadList(result);
     } catch (error) {
       console.error("Error fetching expense head data:", error);
@@ -102,8 +102,8 @@ const ExpenseVoucher = () => {
       }
 
       // Find the _id of the selected head
-      console.log("Current head value:", head); // Debug log
-      console.log("Expense Head List:", expenseHeadList); // Debug log
+      // console.log("Current head value:", head); // Debug log
+      // console.log("Expense Head List:", expenseHeadList); // Debug log
       const selectedHead = expenseHeadList.find(headItem => headItem.head === head);
       const headId = selectedHead ? selectedHead._id : null;
 
@@ -119,7 +119,7 @@ const ExpenseVoucher = () => {
         amount: Number(amount),
       };
 
-      console.log("Saving voucher with payload:", payload);
+      // console.log("Saving voucher with payload:", payload);
 
       let response;
       if (isEdit && editId) {
@@ -149,7 +149,7 @@ const ExpenseVoucher = () => {
         toast.success("Voucher saved successfully!");
       }
 
-      console.log("API Response:", response.data);
+      // console.log("API Response:", response.data);
 
       fetchExpenseVoucherData();
 

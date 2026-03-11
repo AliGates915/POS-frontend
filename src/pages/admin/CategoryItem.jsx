@@ -25,7 +25,7 @@ const Category = () => {
       setLoading(true);
       const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/categories`);
       setCategories(res.data); // store actual categories array
-      console.log("Categories  ", res.data);
+      // console.log("Categories  ", res.data);
     } catch (error) {
       console.error("Failed to fetch Supplier", error);
     } finally {
@@ -124,7 +124,7 @@ const Category = () => {
   };
 
   const handleToggleEnable = async (category) => {
-    console.log(category);
+    // console.log(category);
     
     const swalWithTailwindButtons = Swal.mixin({
       customClass: {

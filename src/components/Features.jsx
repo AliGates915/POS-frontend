@@ -21,7 +21,7 @@ const Features = () => {
           if (b.name?.toLowerCase() === "features") return 1;
           return 0;
         });
-        console.log("Sorted sections:", fetchedSections);
+        // console.log("Sorted sections:", fetchedSections);
         setSections(fetchedSections);
         setTimeout(() => setLoading(false), 1000); // Optional: for loader effect
       } catch (error) {

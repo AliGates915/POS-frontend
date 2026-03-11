@@ -48,7 +48,7 @@ const links = [
   },
   { to: "/admin/item-barcode", label: "Item Barcode", icon: <FaBarcode /> },
   { to: "/admin/expiry-tags", label: "Expiry Tags", icon: <FaTags /> },
-  { to: "/admin/report", label: "Report", icon: <FaChartBar /> },
+  // { to: "/admin/report", label: "Report", icon: <FaChartBar /> },
   {
     label: "Setup",
     icon: <FaCogs />,

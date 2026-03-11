@@ -49,7 +49,7 @@ const CustomerData = () => {
 
   // Token
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  console.log("Admin", userInfo.isAdmin);
+  // console.log("Admin", userInfo.isAdmin);
 
   // Fetch Customer Data
   const fetchCustomerData = useCallback(async () => {
@@ -57,7 +57,7 @@ const CustomerData = () => {
       setLoading(true);
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/customers`);
       const result = await response.json();
-      console.log("Customers ", result);
+      // console.log("Customers ", result);
       setCustomerData(result);
     } catch (error) {
       console.error("Error fetching customer data:", error);
@@ -70,7 +70,7 @@ const CustomerData = () => {
     fetchCustomerData();
   }, [fetchCustomerData]);
 
-  console.log("Customer Data", customerList);
+  // console.log("Customer Data", customerList);
 
 
   // Save Customer Data
@@ -84,7 +84,7 @@ const payload = {
   paymentMethod,
 };
 
-console.log("Payload", payload);
+// console.log("Payload", payload);
 
     try {
       const { token } = JSON.parse(localStorage.getItem("userInfo")) || {};
@@ -138,7 +138,7 @@ console.log("Payload", payload);
     setNearby(client.nearby || "");
     setPaymentMethod(client.paymentMethod || "");
     setIsSliderOpen(true);
-    console.log("Editing Client Data", client);
+    // console.log("Editing Client Data", client);
   };
 
   // Delete Customer

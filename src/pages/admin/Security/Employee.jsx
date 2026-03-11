@@ -209,11 +209,11 @@ const Employee = () => {
             } else {
                 // If no data from API, use dummy data
                 setEmployeeList(dummyEmployees);
-                console.log("Using dummy employees data");
+                // console.log("Using dummy employees data");
             }
         } catch (error) {
             // If API fails, use dummy data for demonstration
-            console.log("API failed, using dummy data");
+            // console.log("API failed, using dummy data");
             setEmployeeList(dummyEmployees);
         } finally {
             setTimeout(() => setLoading(false), 1000);

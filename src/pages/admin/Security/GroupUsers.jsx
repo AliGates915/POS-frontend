@@ -241,7 +241,7 @@ const GroupUsers = () => {
         setGroupUserList(dummyGroupUsers);
         setSoftwareGroups(dummySoftwareGroups);
         setUsers(dummyUsers);
-        console.log("Using dummy group users data");
+        // console.log("Using dummy group users data");
       }
     } catch (error) {
       // If API fails, use dummy data for demonstration
@@ -315,7 +315,7 @@ const GroupUsers = () => {
     formData.append("softwareGroupId", softwareGroupId);
     formData.append("userId", userId);
 
-    console.log("Form Data", [...formData.entries()]);
+    // console.log("Form Data", [...formData.entries()]);
 
     try {
       const headers = {

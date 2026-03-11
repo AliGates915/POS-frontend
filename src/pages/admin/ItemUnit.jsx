@@ -39,7 +39,7 @@ const ItemUnit = () => {
       setLoading(true);
       const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/item-unit`);
       setManufacturerList(res.data); // store actual categories array
-      console.log("Item Unit ", res.data);
+      // console.log("Item Unit ", res.data);
     } catch (error) {
       console.error("Failed to fetch Shelves", error);
     } finally {

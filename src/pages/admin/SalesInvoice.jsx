@@ -61,7 +61,7 @@ const SalesInvoice = () => {
       setLoading(true);
       const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/saleInvoices`);
       setInvoices(res.data); // store actual categories array
-      console.log("Sales Invoices", res.data);
+      // console.log("Sales Invoices", res.data);
     } catch (error) {
       console.error("Failed to fetch products or categories", error);
     } finally {
@@ -91,7 +91,7 @@ const SalesInvoice = () => {
 
         if (res.data) {
           setSuggestionsNo(Array.isArray(res.data) ? res.data : [res.data]);
-          console.log("suggestion", suggestionsNo)
+          // console.log("suggestion", suggestionsNo)
         } else {
           setSuggestionsNo([]);
         }
@@ -119,7 +119,7 @@ const SalesInvoice = () => {
             `${import.meta.env.VITE_API_BASE_URL}/item-details/search?q=${searchValue}`
           );
           setSuggestions(res.data);
-          console.log("Suggestion Item", res.data);
+          // console.log("Suggestion Item", res.data);
         } catch (error) {
           console.error("Error fetching items", error);
         }
@@ -138,7 +138,7 @@ const SalesInvoice = () => {
       setLoading(true);
       const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/categories/list`);
       setCategoryList(res.data); // store actual categories array
-      console.log("Categories ", res.data);
+      // console.log("Categories ", res.data);
     } catch (error) {
       console.error("Failed to fetch categories", error);
     } finally {
@@ -157,9 +157,9 @@ const SalesInvoice = () => {
         `${import.meta.env.VITE_API_BASE_URL}/item-details/category/${categoryName}`
       );
       setSuggestions(res.data); // store items of this category as suggestions
-      console.log("Suggestion", suggestions);
+      // console.log("Suggestion", suggestions);
 
-      console.log("Items by Category:", res.data);
+      // console.log("Items by Category:", res.data);
     } catch (error) {
       console.error("Failed to fetch items by category", error);
     }
@@ -229,7 +229,7 @@ const SalesInvoice = () => {
       returnAmount,
       itemCategory
     };
-    console.log("Form data ", formData);
+    // console.log("Form data ", formData);
 
     try {
       const headers = {
@@ -369,12 +369,12 @@ const SalesInvoice = () => {
 
   // Retrun invoice
   const handleReturn = (invoice) => {
-    console.log(invoice);
+    // console.log(invoice);
 
     setIsEdit(true);
     setIsReturn(true)
     setEditId(invoice._id);
-    console.log("Eidit ", editId);
+    // console.log("Eidit ", editId);
 
     setCustomerName(invoice.customerName || '');
     setMobile(invoice.mobile || '');

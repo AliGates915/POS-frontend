@@ -22,7 +22,7 @@ const GroupManagement = () => {
   const getUserInfo = () => {
     try {
       const info = JSON.parse(localStorage.getItem("userInfo") || "{}");
-      console.log("Parsed userInfo:", info);
+      // console.log("Parsed userInfo:", info);
       return info;
     } catch (error) {
       console.error("Error parsing userInfo:", error);
@@ -66,7 +66,7 @@ const GroupManagement = () => {
       let result = [];
       if (response.ok) {
         result = await response.json();
-        console.log("User list ", result);
+        // console.log("User list ", result);
 
       }
 
@@ -117,7 +117,7 @@ const GroupManagement = () => {
     fetchGroupData();
     fetchUserData();
   }, [fetchGroupData, fetchUserData]);
-  console.log("Group and User data fetched");
+  // console.log("Group and User data fetched");
 
   // Validate form
   const validateForm = () => {
@@ -169,12 +169,12 @@ const GroupManagement = () => {
 
   // Edit Group
   const handleEdit = (group) => {
-    console.log("Edit   ", group.users);
+    // console.log("Edit   ", group.users);
 
     setIsEdit(true);
     setEditId(group._id);
     setGroupName(group.groupName || "");
-    console.log("Selected users", selectedUsers);
+    // console.log("Selected users", selectedUsers);
 
     setSelectedUsers(group.users.map(u => u._id) || userList);
     setIsSliderOpen(true);

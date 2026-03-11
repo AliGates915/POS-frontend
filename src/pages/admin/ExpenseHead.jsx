@@ -44,7 +44,7 @@ const ExpenseHead = () => {
 
   // Token
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  console.log("Admin", userInfo?.isAdmin);
+  // console.log("Admin", userInfo?.isAdmin);
 
   // Fetch Expense Head Data
   const fetchExpenseHeadData = useCallback(async () => {
@@ -52,7 +52,7 @@ const ExpenseHead = () => {
       setLoading(true);
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/heads`);
       const result = await response.json();
-      console.log("Expense Heads ", result);
+      // console.log("Expense Heads ", result);
       setExpenseHeadList(result);
     } catch (error) {
       console.error("Error fetching expense head data:", error);
@@ -65,7 +65,7 @@ const ExpenseHead = () => {
     fetchExpenseHeadData();
   }, [fetchExpenseHeadData]);
 
-  console.log("Expense Head Data", expenseHeadList);
+  // console.log("Expense Head Data", expenseHeadList);
 
   // Save Expense Head Data
   const handleSave = async () => {
@@ -73,7 +73,7 @@ const ExpenseHead = () => {
     formData.append("head", head);
     formData.append("description", description);
 
-    console.log("formdata", formData);
+    // console.log("formdata", formData);
     
     try {
       const { token } = JSON.parse(localStorage.getItem("userInfo")) || {};
@@ -120,7 +120,7 @@ const ExpenseHead = () => {
     setHead(expense.head || "");
     setDescription(expense.description || "");
     setIsSliderOpen(true);
-    console.log("Editing Expense Head Data", expense);
+    // console.log("Editing Expense Head Data", expense);
   };
 
   // Delete Expense Head

@@ -231,7 +231,7 @@ const GroupRights = () => {
       } else {
         // If no data from API, use dummy data
         setRightsList(dummyRights);
-        console.log("Using dummy rights data");
+        // console.log("Using dummy rights data");
       }
     } catch (error) {
       // If API fails, use dummy data for demonstration

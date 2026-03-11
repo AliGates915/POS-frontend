@@ -167,11 +167,11 @@ const Company = () => {
       } else {
         // If no data from API, use dummy data
         setCompanyList(dummyCompanies);
-        console.log("Using dummy companies data");
+        // console.log("Using dummy companies data");
       }
     } catch (error) {
       // If API fails, use dummy data for demonstration
-      console.log("API failed, using dummy data");
+      // console.log("API failed, using dummy data");
       setCompanyList(dummyCompanies);
     } finally {
       setTimeout(() => setLoading(false), 1000);
@@ -249,7 +249,7 @@ const Company = () => {
       formData.append("companyImage", image);
     }
 
-    console.log("Form Data", [...formData.entries()]);
+    // console.log("Form Data", [...formData.entries()]);
 
     try {
       const headers = {

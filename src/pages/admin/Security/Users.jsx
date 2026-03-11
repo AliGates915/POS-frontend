@@ -177,11 +177,11 @@ const Users = () => {
       } else {
         // If no data from API, use dummy data
         setUserList(dummyUsers);
-        console.log("Using dummy users data");
+        // console.log("Using dummy users data");
       }
     } catch (error) {
       // If API fails, use dummy data for demonstration
-      console.log("API failed, using dummy data");
+      // console.log("API failed, using dummy data");
       setUserList(dummyUsers);
     } finally {
       setTimeout(() => setLoading(false), 1000);
@@ -232,7 +232,7 @@ const Users = () => {
     formData.append("description", description);
     formData.append("status", status);
 
-    console.log("Form Data", [...formData.entries()]);
+    // console.log("Form Data", [...formData.entries()]);
 
     try {
       const headers = {

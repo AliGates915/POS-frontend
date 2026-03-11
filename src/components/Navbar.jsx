@@ -72,7 +72,7 @@ const Navbar = () => {
 
   // Handle logout
   const handleLogout = () => {
-    console.log("=== HANDLE LOGOUT CALLED ===");
+    // console.log("=== HANDLE LOGOUT CALLED ===");
     try {
       dispatch(logout());
       localStorage.removeItem("userInfo");

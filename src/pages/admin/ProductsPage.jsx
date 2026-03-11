@@ -30,7 +30,7 @@ const ProductsPage = () => {
 
   // Get User from the LocalStorage
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  console.log("Admin", userInfo.isAdmin);
+  // console.log("Admin", userInfo.isAdmin);
 
 
 
@@ -83,7 +83,7 @@ const ProductsPage = () => {
       }
   
       const result = await response.json();
-      console.log("Product Response ", result.data);
+      // console.log("Product Response ", result.data);
   
       setProducts(result.data);
   
@@ -126,7 +126,7 @@ const ProductsPage = () => {
       }
   
       const result = await response.json();
-      console.log("ProductsByMonths", result.data);
+      // console.log("ProductsByMonths", result.data);
   
       setProductsByMonths(result.data);
     } catch (err) {
@@ -225,7 +225,7 @@ const handleDelete = async (id) => {
 
         const res = response.data.data;
         setOrders(res)
-        console.log("Order", res);
+        // console.log("Order", res);
         // filtered order list
       } catch (error) {
         console.error("Error fetching orders by month:", error);
@@ -335,7 +335,7 @@ const handleDelete = async (id) => {
     });
     setImagePreview(product.image?.[0]?.url || "");
     setIsSliderOpen(true);
-    console.log("Edit Data", formState);
+    // console.log("Edit Data", formState);
     
   };
   

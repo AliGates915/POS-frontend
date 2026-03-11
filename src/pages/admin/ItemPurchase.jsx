@@ -56,7 +56,7 @@ export default function PurchaseManager() {
             setLoading(true);
             const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/purchases`);
             setPurchases(res.data); // store actual categories array
-            console.log("Item Purchase", res.data);
+            // console.log("Item Purchase", res.data);
         } catch (error) {
             console.error("Failed to fetch products or categories", error);
         } finally {
@@ -76,14 +76,14 @@ export default function PurchaseManager() {
         const fetchLastGRN = async () => {
             try {
                 const res = await axios.get(
-                    `${import.meta.env.VITE_API_BASE_URL}/purchases/last`
+                    `${import.meta.env.VITE_API_BASE_URL}/purchases`
                 );
 
                 const data = res.data;
-                console.log("Latest GRN:", data.grnNo); // 1002
+                // console.log("Latest GRN:", data.grnNo); // 1002
 
                 const nextGrn = String(parseInt(data.grnNo, 10) + 1).padStart(4, "0");
-                console.log("New GRN:", nextGrn);
+                // console.log("New GRN:", nextGrn);
 
                 setNewGrn(nextGrn); // ✅ store in state
             } catch (err) {
@@ -102,7 +102,7 @@ export default function PurchaseManager() {
             setLoading(true);
             const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/suppliers/list`);
             setSupplierList(res.data); // store actual categories array
-            console.log("Supplier ", res.data);
+            // console.log("Supplier ", res.data);
         } catch (error) {
             console.error("Failed to fetch Supplier", error);
         } finally {
@@ -119,7 +119,7 @@ export default function PurchaseManager() {
             setLoading(true);
             const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/categories/list`);
             setCategoryList(res.data); // store actual categories array
-            console.log("Categories ", res.data);
+            // console.log("Categories ", res.data);
         } catch (error) {
             console.error("Failed to fetch categories", error);
         } finally {

@@ -94,7 +94,7 @@ const BookingOrder = () => {
                 balance: balanceAmt,
                 paymentMethod: formData.paymentMethod, // must be Cash / Card / Cash on Delivery
             };
-            console.log("Book data", bookingData);
+            // console.log("Book data", bookingData);
 
 
             // Auth
@@ -153,7 +153,7 @@ const BookingOrder = () => {
 
     // ===== Edit Booking =====
     const handleEditClick = (booking) => {
-        console.log("Booking ", booking);
+        // console.log("Booking ", booking);
         
         // Populate formData with booking values
         setFormData({
@@ -185,7 +185,7 @@ const BookingOrder = () => {
         // Open slider (form)
         setIsSliderOpen(true);
 
-        console.log("Editing booking:", booking);
+        // console.log("Editing booking:", booking);
     };
 
 
@@ -221,7 +221,7 @@ const BookingOrder = () => {
                         `${import.meta.env.VITE_API_BASE_URL}/item-details/search?q=${searchValue}`
                     );
                     setSuggestions(res.data);
-                    console.log("Suggestion Item", res.data);
+                    // console.log("Suggestion Item", res.data);
                 } catch (error) {
                     console.error("Error fetching items", error);
                 }
@@ -250,7 +250,7 @@ const BookingOrder = () => {
 
                 if (res.data) {
                     setSuggestions(Array.isArray(res.data) ? res.data : [res.data]);
-                    console.log("suggestion", suggestions)
+                    // console.log("suggestion", suggestions)
                 } else {
                     setSuggestions([]);
                 }
@@ -279,7 +279,7 @@ const BookingOrder = () => {
             setLoading(true);
             const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/categories/list`);
             setCategoryList(res.data); // store actual categories array
-            console.log("Categories ", res.data);
+            // console.log("Categories ", res.data);
         } catch (error) {
             console.error("Failed to fetch categories", error);
         } finally {
@@ -297,9 +297,9 @@ const BookingOrder = () => {
                 `${import.meta.env.VITE_API_BASE_URL}/item-details/category/${categoryName}`
             );
             setSuggestions(res.data); // store items of this category as suggestions
-            console.log("Suggestion", suggestions);
+            // console.log("Suggestion", suggestions);
 
-            console.log("Items by Category:", res.data);
+            // console.log("Items by Category:", res.data);
         } catch (error) {
             console.error("Failed to fetch items by category", error);
         }
@@ -337,7 +337,7 @@ const BookingOrder = () => {
             })),
         }));
 
-        console.log("Payable:", payableAmt, "Balance:", balanceAmt);
+        // console.log("Payable:", payableAmt, "Balance:", balanceAmt);
     };
 
 
@@ -361,7 +361,7 @@ const BookingOrder = () => {
 
     // ✅ When user selects an item from suggestions
     const handleSearch = (selectedItem, index) => {
-        console.log("Selected Item", selectedItem);
+        // console.log("Selected Item", selectedItem);
 
         handleItemChange(index, "itemName", selectedItem.itemName);
 
@@ -378,7 +378,7 @@ const BookingOrder = () => {
             setLoading(true);
             const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/bookings`);
             setItem(res.data); // store actual categories array
-            console.log("Booking Data", res.data);
+            // console.log("Booking Data", res.data);
         } catch (error) {
             console.error("Failed to fetch booking or categories", error);
         } finally {
@@ -396,7 +396,7 @@ const BookingOrder = () => {
 
     // ✅ Handle suggestion click
     const handleCustomerSelect = (customer) => {
-        console.log("Customer", customer);
+        // console.log("Customer", customer);
 
         setFormData({
             ...formData,

@@ -107,7 +107,7 @@ const SoftwareGroup = () => {
             } else {
                 // If no data from API, use dummy data
                 setSoftwareGroupList(dummySoftwareGroups);
-                console.log("Using dummy software groups data");
+                // console.log("Using dummy software groups data");
             }
         } catch (error) {
             // If API fails, use dummy data for demonstration
